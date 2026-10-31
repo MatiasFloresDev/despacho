@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Despacho · SAP Fiori launchpad</title>
+  <!-- Launchpad de prueba de SAP (sandbox): muestra las apps como mosaicos, igual que en un sistema SAP real -->
+  <script>
+    window['sap-ushell-config'] = {
+      defaultRenderer: 'fiori2',
+      renderers: { fiori2: { componentData: { config: { enableSearch: false, rootIntent: 'Shell-home' } } } },
+      applications: {
+        'Pedidos-manage': {
+          title: 'Gestionar pedidos', description: 'Crear, confirmar y despachar', icon: 'sap-icon://sales-order',
+          additionalInformation: 'SAPUI5.Component=despacho.pedidos', applicationType: 'URL', url: './pedidos/webapp', navigationMode: 'embedded'
+        },
+        'Productos-manage': {
+          title: 'Stock de productos', description: 'Inventario con semáforo', icon: 'sap-icon://product',
+          additionalInformation: 'SAPUI5.Component=despacho.stock', applicationType: 'URL', url: './stock/webapp', navigationMode: 'embedded'
+        },
+        'Clientes-manage': {
+          title: 'Clientes', description: 'Bodegas y minimarkets', icon: 'sap-icon://customer',
+          additionalInformation: 'SAPUI5.Component=despacho.clientes', applicationType: 'URL', url: './clientes/webapp', navigationMode: 'embedded'
+        }
+      }
+    };
+  </script>
+  <script src="https://ui5.sap.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
+  <script id="sap-ui-bootstrap" src="https://ui5.sap.com/resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m, sap.ushell, sap.fe.templates"
+    data-sap-ui-theme="sap_horizon"
+    data-sap-ui-language="es"
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-async="true"
+    data-sap-ui-frameOptions="allow"
+    data-sap-ui-resourceroots='{"despacho.pedidos": "./pedidos/webapp", "despacho.stock": "./stock/webapp", "despacho.clientes": "./clientes/webapp"}'></script>
+  <script>
+    sap.ui.require(['sap/ui/core/Core'], async (Core) => {
+      await Core.ready();
+      sap.ushell.Container.createRenderer(true).then((r) => r.placeAt('content'));
+    });
+  </script>
+  <style>html, body, #content { height: 100%; margin: 0; }</style>
+</head>
+<body class="sapUiBody" id="content"></body>
+</html>

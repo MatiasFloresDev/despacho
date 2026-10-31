@@ -1,0 +1,6 @@
+code;name;descr;criticidad
+N;Nuevo;Registrado por el vendedor, aún no reserva stock;0
+C;Confirmado;Stock reservado, listo para preparar;2
+D;Despachado;Salió del almacén en reparto;2
+E;Entregado;Recibido por el cliente;3
+A;Anulado;Cancelado; si estaba confirmado, el stock volvió al almacén;1

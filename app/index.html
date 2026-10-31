@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Despacho · Pedidos y stock con SAP CAP y Fiori</title>
+<meta name="description" content="Despacho: pedidos, stock y despachos para distribuidoras, construido con SAP Cloud Application Programming Model (CAP) y SAP Fiori Elements. Demo en línea.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a6ed1'/%3E%3Cpath d='M9 11h14M9 16h14M9 21h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root { --azul: #0a6ed1; --azul-d: #0854a0; --tx: #1d2d3e; --tx2: #556b82; --fondo: #f5f6f7; --borde: #d9dee3; --ok: #256f3a; --ambar: #c35500; --rojo: #aa0808; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tx: #eaecee; --tx2: #a9b4be; --fondo: #12171c; --borde: #2f3a45; --azul: #4db1ff; --azul-d: #8fcbff; --ok: #5dc122; --ambar: #ff9a3d; --rojo: #ff5c5c; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 '72', 'Segoe UI', system-ui, sans-serif; color: var(--tx); background: var(--fondo); }
+  .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+  header { padding: 64px 0 40px; }
+  .chip { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; color: var(--azul-d); background: color-mix(in srgb, var(--azul) 12%, transparent); padding: 6px 12px; border-radius: 99px; }
+  h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; margin: 18px 0 14px; max-width: 18ch; }
+  .lead { color: var(--tx2); font-size: 1.1rem; max-width: 60ch; margin: 0; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 20px; border-radius: 10px; font-weight: 700; text-decoration: none; border: 1px solid var(--borde); color: var(--tx); }
+  .btn.p { background: var(--azul); border-color: var(--azul); color: #fff; }
+  .btn.p:hover { background: var(--azul-d); }
+  section { padding: 28px 0; }
+  h2 { font-size: 1.5rem; letter-spacing: -0.02em; margin: 0 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .card { background: color-mix(in srgb, var(--fondo) 40%, #fff 60%); border: 1px solid var(--borde); border-radius: 14px; padding: 18px; }
+  @media (prefers-color-scheme: dark) { .card { background: #1a2129; } }
+  .card b { display: block; font-size: 1.05rem; }
+  .card p { margin: 6px 0 0; color: var(--tx2); font-size: 15px; }
+  code { font: 600 14px ui-monospace, Consolas, monospace; background: color-mix(in srgb, var(--azul) 10%, transparent); padding: 2px 6px; border-radius: 6px; }
+  .flujo { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-weight: 700; }
+  .flujo span { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--borde); }
+  .flujo .n { color: var(--tx2); } .flujo .c, .flujo .d { color: var(--ambar); } .flujo .e { color: var(--ok); } .flujo .a { color: var(--rojo); }
+  .flujo i { font-style: normal; color: var(--tx2); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--borde); }
+  th { color: var(--tx2); font-weight: 600; }
+  footer { padding: 40px 0 56px; color: var(--tx2); font-size: 14px; }
+  footer a { color: var(--azul-d); }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <span class="chip">SAP CAP · SAP Fiori Elements · OData V4</span>
+  <h1>Despacho: pedidos y stock para distribuidoras.</h1>
+  <p class="lead">El vendedor toma el pedido, el sistema calcula precios e IGV, reserva el stock al confirmar y el almacén lo despacha. Hecho con el modelo de programación de aplicaciones de SAP (CAP) y pantallas SAP Fiori, como en una empresa que usa SAP.</p>
+  <div class="cta"><a class="btn p" href="launchpad.html">Abrir el launchpad →</a><a class="btn" href="#adentro">Cómo está hecho</a></div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Usuarios de prueba</h2>
+    <p class="lead" style="margin-bottom:14px">El navegador pide usuario y contraseña al entrar (son iguales). Cada rol ve botones distintos.</p>
+    <table>
+      <thead><tr><th>Usuario</th><th>Contraseña</th><th>Qué puede hacer</th></tr></thead>
+      <tbody>
+        <tr><td><code>vendedor</code></td><td><code>vendedor</code></td><td>Crear y editar pedidos, confirmarlos (reserva stock) y anularlos.</td></tr>
+        <tr><td><code>almacen</code></td><td><code>almacen</code></td><td>Despachar y marcar entregados; mantener el stock.</td></tr>
+        <tr><td><code>admin</code></td><td><code>admin</code></td><td>Todo.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>El flujo de un pedido</h2>
+    <p class="flujo"><span class="n">Nuevo</span><i>→</i><span class="c">Confirmado</span><i>→</i><span class="d">Despachado</span><i>→</i><span class="e">Entregado</span><i>·</i><span class="a">Anulado</span></p>
+  </section>
+
+  <section>
+    <h2 id="adentro">Qué tiene adentro</h2>
+    <div class="grid">
+      <div class="card"><b>Modelo CDS</b><p>Clientes, productos, pedidos con sus líneas y estados. CAP crea la base de datos y el servicio OData desde el modelo.</p></div>
+      <div class="card"><b>Borradores (draft)</b><p>El vendedor edita sin bloquear a nadie; precios, importes, subtotal, IGV y total se recalculan mientras escribe.</p></div>
+      <div class="card"><b>Acciones de negocio</b><p>Confirmar reserva el stock de todo el pedido o de nada; anular un confirmado lo devuelve al almacén.</p></div>
+      <div class="card"><b>Roles</b><p>Vendedor, almacén y administrador, con permisos declarados en el servicio (<code>@restrict</code>).</p></div>
+      <div class="card"><b>Fiori Elements</b><p>Lista con filtros, página de detalle, semáforo de stock y botones que solo se activan en el estado correcto.</p></div>
+      <div class="card"><b>Pruebas</b><p>8 pruebas de punta a punta contra el servicio OData real con <code>cds.test</code>.</p></div>
+    </div>
+  </section>
+</main>
+<footer class="wrap">Demo con datos de ejemplo: la base se reinicia sola. Hecho por <a href="https://matiasflores-dev.vercel.app" target="_blank" rel="noopener">Matías Flores</a>, Lima.</footer>
+</body>
+</html>

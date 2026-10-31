@@ -1,0 +1,19 @@
+ID;codigo;nombre;categoria_code;unidad;precio;stock;stockMinimo
+a8d42934-33e7-98a0-e81f-9b0cbf4e7af6;ABA-001;Arroz extra 5 kg;ABA;bolsa;21.90;120;30
+8b4486c5-99cb-381b-6eb5-8eea34854702;ABA-002;Azúcar rubia 1 kg;ABA;bolsa;4.20;300;60
+f37fe7b9-c6bd-7881-20bc-3fd70e87a553;ABA-003;Aceite vegetal 1 L;ABA;botella;9.80;8;40
+baec8076-0aaf-3a94-7a2d-4f33c3b072e1;ABA-004;Fideo spaghetti 500 g;ABA;paquete;3.10;260;50
+2bef1f6b-80b3-6714-9f97-c413aef2f88a;ABA-005;Atún en trozos 170 g;ABA;lata;5.90;140;40
+3e113028-f427-d2bb-6dfa-23e7a2ac704c;ABA-006;Lentejas 500 g;ABA;bolsa;4.80;0;20
+b79bcd23-68bd-7159-bf6b-bb58fc9c2429;BEB-001;Gaseosa 3 L;BEB;botella;10.50;90;36
+b1479939-c94b-3f4a-33b2-9589d819c90f;BEB-002;Agua sin gas 625 ml;BEB;botella;1.50;480;120
+aaaa3bc8-075e-e326-db1e-799df8c4efb3;BEB-003;Néctar de durazno 1 L;BEB;caja;4.50;25;30
+24ea816a-38e7-741b-daae-3beaf019daee;BEB-004;Café instantáneo 50 g;BEB;frasco;8.90;70;20
+7bb1ae69-98f2-ffd2-376c-1fdf21211a73;LAC-001;Leche evaporada 400 g;LAC;lata;4.10;360;96
+63808ad7-f4e8-9322-c3e8-d9dfd6bf76fe;LAC-002;Yogur bebible 1 L;LAC;botella;6.90;48;24
+958ad302-d3e3-74b5-3e5f-8d205d415f26;LAC-003;Mantequilla 200 g;LAC;barra;7.50;12;15
+bcad1974-f7f0-03ee-07c7-259207e1e5a8;LIM-001;Detergente 2 kg;LIM;bolsa;18.50;60;20
+8964b481-8b23-5cb4-d83c-64a04b202f42;LIM-002;Lejía 1 L;LIM;botella;3.20;150;40
+a4f69164-0b38-4ba6-826e-86ea1fd486af;LIM-003;Papel higiénico x4;LIM;paquete;6.40;85;30
+a84bfd71-99a3-eaf2-76de-673501f7f5ca;SNA-001;Galletas de soda x6;SNA;paquete;3.60;210;60
+51b62296-d0e1-d010-5049-1a5c8fa5c61f;SNA-002;Papas fritas 150 g;SNA;bolsa;5.50;5;30

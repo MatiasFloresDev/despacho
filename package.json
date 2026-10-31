@@ -1,0 +1,73 @@
+{
+  "name": "despacho",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Despacho: pedidos, stock y despachos para distribuidoras, hecho con SAP CAP y SAP Fiori Elements.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "dev": "cds watch",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "dependencies": {
+    "@cap-js/postgres": "^3.1.2",
+    "@cap-js/sqlite": "^3.1.2",
+    "@sap/cds": "^10.2.2",
+    "express": "^4.22.3"
+  },
+  "devDependencies": {
+    "@cap-js/cds-test": "^1.0.2",
+    "@sap/cds-dk": "^10.2.0"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": ":memory:"
+        }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "vendedor": {
+            "password": "vendedor",
+            "roles": [
+              "Vendedor"
+            ]
+          },
+          "almacen": {
+            "password": "almacen",
+            "roles": [
+              "Almacen"
+            ]
+          },
+          "admin": {
+            "password": "admin",
+            "roles": [
+              "Admin",
+              "Vendedor",
+              "Almacen"
+            ]
+          },
+          "*": false
+        }
+      }
+    },
+    "[production]": {
+      "requires": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        },
+        "auth": {
+          "kind": "mocked"
+        }
+      }
+    }
+  }
+}
