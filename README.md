@@ -75,7 +75,7 @@ Abre http://localhost:4004/launchpad.html y entra con `vendedor` / `vendedor`. L
 
 ## Publicación
 
-- **Demo:** Vercel (`api/index.js` levanta CAP dentro de una función). Con la variable `POSTGRES_URL` (por ejemplo, Neon) todas las instancias comparten la misma base de datos; sin ella usa SQLite en memoria por instancia.
+- **Demo:** Vercel (`api/index.js` levanta CAP dentro de una función) con una base **Postgres en Neon** (plan gratuito) que comparten todas las instancias. La primera vez crea las tablas y carga los CSV. Usa la conexión directa de Neon (`DATABASE_URL_UNPOOLED`), porque CAP guarda el idioma en variables de sesión que el pooler no conserva. Sin esas variables usa SQLite en memoria.
 - **SAP BTP (el camino oficial):** `cds add mta xsuaa hana` y `mbt build && cf deploy` en una cuenta de prueba de SAP BTP. Cambia la base por SAP HANA Cloud y los usuarios de prueba por roles de XSUAA.
 
 ## Qué demuestra este proyecto
